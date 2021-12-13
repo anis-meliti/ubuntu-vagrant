@@ -2,7 +2,7 @@
 
 To setup the environment we are going to need to install these dependencies:
 
- 1. [https://rancher.com/docs/rke/latest/en/installation/](Rancher Kubernetes Engine ( RKE ))
+ 1. (https://rancher.com/docs/rke/latest/en/installation/)[Rancher Kubernetes Engine ( RKE )]
  2. [https://www.virtualbox.org/wiki/Downloads](VirtualBox)
  3. [https://www.vagrantup.com/docs/installation](Vagrant)
  4. [https://kubernetes.io/docs/tasks/tools/](Kubectl)
