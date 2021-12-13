@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
       k8s_master.vm.hostname = "master"
       k8s_master.vm.provider "virtualbox" do |v|
         v.customize ["modifyvm", :id, "--audio", "none"]
-        v.memory = 2048
+        v.memory = 4048
         v.cpus = 2
       end
     end
@@ -21,7 +21,18 @@ Vagrant.configure("2") do |config|
       k8s_worker.vm.hostname = "worker1"
       k8s_worker.vm.provider "virtualbox" do |v|
         v.customize ["modifyvm", :id, "--audio", "none"]
-        v.memory = 5120
+        v.memory = 4120
+        v.cpus = 2
+      end
+    end
+    ## Worker Node 2
+    config.vm.define "worker2" do |k8s_worker|
+      k8s_worker.vm.provision "shell", path: "node_script.sh"
+      k8s_worker.vm.network "private_network", ip: "172.16.129.103"
+      k8s_worker.vm.hostname = "worker2"
+      k8s_worker.vm.provider "virtualbox" do |v|
+        v.customize ["modifyvm", :id, "--audio", "none"]
+        v.memory = 4120
         v.cpus = 2
       end
     end
