@@ -1,5 +1,7 @@
 # Deploy openedx platform using tutor and rancher
 
+## Setup the local environment
+
 To setup the environment we are going to need to install these dependencies:
 
  1. [Rancher Kubernetes Engine ( RKE )](https://rancher.com/docs/rke/latest/en/installation/)
@@ -43,6 +45,11 @@ Use the predefined `cluster.yml` file by running
 rke up --ssh-agent-auth # the --ssh-agent-auth flag is used because we've set the ssh keys
 ```
 
+The previous command will generate two file `cluster.rkestate` and `kube_config_cluster.yml` run the following cmd to make sure the kubectl current context is the one we've created
+
+```sh 
+cp kube_config_cluster.yml  ~/.kube/config
+```
 
 Now we have a master node with two worker nodes:
  * master => 192.16.129.101
@@ -142,29 +149,3 @@ Output:
 NAME          READY     STATUS    RESTARTS   AGE
 volume-test   1/1       Running   0          3s
 ```
-
-
-
-* Deploy openedx through tutor 
-
-In the terminal run 
-```sh 
-tutor k8s quickstart
-```
-*PS. the quickstart for tutor could fail for the time because it will wait until the dbs pods get ready which could take a while*
-
-In this case, you can run 
-```sh 
-tutor k8s start 
-``` 
-After that, check when all the pods are ready via 
-```sh 
-kubectl get pods -n openedx
-```
-or through the dashboard 
-
-when everything is fine, you can run 
-```sh 
-tutor k8s init 
-```
-
