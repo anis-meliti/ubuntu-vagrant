@@ -26,6 +26,7 @@ Copy the generated ssh keys from your host to each machine. Run the following cm
 ```sh 
 ssh-copy-id root@[VM_ip_address]
 ```
+***PS: the password is by default: `iamadmin`***
 
 Once the VMs are ready with the ssh configuration. we proceed to provision the cluster with RKE (there are two to do it)
 
