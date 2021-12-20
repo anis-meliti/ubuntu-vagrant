@@ -103,9 +103,21 @@ sudo nano /etc/host
 
 
 Now you can access your rancher desktop through the browser via the host we set before.
+
+
 * Setup a localStorage for rancher 
 
 Because rancher desktop use k3s which doesn't support PV and PVC, we have to add a third party library that handle that:
+
+Before we install the third party module, we need to activate the local-storage in rancher. To do so:
+1. Go to rancher desktop dashboard 
+
+![rancher-desktop](./img/rancher-desktop.png)
+2. Choose `Global Settings` -> `Feature Flags` 
+3. Activate `unsupported-storage-driver` 
+
+![feature-flag](./img/Feature-flag.png)
+
 
 To install [local-path-provisioner](https://github.com/rancher/local-path-provisioner) run the following cmd: 
 
