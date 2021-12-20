@@ -150,3 +150,25 @@ Output:
 NAME          READY     STATUS    RESTARTS   AGE
 volume-test   1/1       Running   0          3s
 ```
+
+Now we have to edit the configMap of `local-path-storage`, by changing the value of nodePath
+1. Go to rancher dashboard -> Storage -> configMaps 
+2. Choose `local-path-config` 
+3. Edit the `config.json` to be like this one: 
+```sh 
+  config.json: |-
+    {
+            "nodePathMap":[
+            {
+                    "node":"172.16.129.101",
+                    "paths":["/opt/local-path-provisioner"]
+            },
+            {
+                    "node":"172.16.129.102",
+                    "paths":["/opt/local-path-provisioner"]
+            }
+            ]
+    }
+```
+
+4. Save the changes 
