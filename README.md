@@ -112,11 +112,12 @@ Because rancher desktop use k3s which doesn't support PV and PVC, we have to add
 Before we install the third party module, we need to activate the local-storage in rancher. To do so:
 1. Go to rancher desktop dashboard 
 
-![rancher-desktop](./img/rancher-desktop.png)
+![rancher-desktop](https://github.com/anis-meliti/ubuntu-vagrant/blob/master/img/Rancher-desktop.png)
+
 2. Choose `Global Settings` -> `Feature Flags` 
 3. Activate `unsupported-storage-driver` 
 
-![feature-flag](./img/Feature-flag.png)
+![feature-flag](https://github.com/anis-meliti/ubuntu-vagrant/blob/master/img/Feature-flags.png)
 
 
 To install [local-path-provisioner](https://github.com/rancher/local-path-provisioner) run the following cmd: 
